@@ -1,1 +1,105 @@
-(()=>{"use strict";const e=()=>{const e=document.querySelector("#content"),t=document.createElement("div");t.classList.add("page-content");const n=document.createElement("img");n.src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/52/e7/28/tocha-at-banyan-tree.jpg?w=600&h=-1&s=1",n.height="300",t.appendChild(n);const c=document.createElement("h1");c.textContent="Welcome to our restaurant!",t.appendChild(c);const d=document.createElement("p");d.textContent="We serve the best food in town!",t.appendChild(d),e.appendChild(t)};function t(){const e=document.querySelector("#content"),t=document.querySelector(".page-content");t&&e.removeChild(t)}(()=>{const n=document.querySelector("#content"),c=document.createElement("div"),d=document.createElement("div"),o=document.createElement("div");c.setAttribute("id","home-btn"),d.setAttribute("id","menu-btn"),o.setAttribute("id","contact-btn"),c.classList.add("tab"),d.classList.add("tab"),o.classList.add("tab"),c.textContent="Home",d.textContent="Menu",o.textContent="Contact",n.appendChild(c),n.appendChild(d),n.appendChild(o),c.addEventListener("click",(()=>{t(),e()})),d.addEventListener("click",(()=>{t(),(()=>{const e=document.querySelector("#content"),t=document.createElement("div");t.classList.add("page-content");const n=document.createElement("h1");n.textContent="Our Menu";const c=document.createElement("ul"),d=document.createElement("li");d.textContent="Pasta - $20";const o=document.createElement("li");o.textContent="Pizza - $15";const a=document.createElement("li");a.textContent="Fries - $5",c.appendChild(d),c.appendChild(o),c.appendChild(a),t.appendChild(n),t.appendChild(c),e.appendChild(t)})()})),o.addEventListener("click",(()=>{t(),(()=>{const e=document.querySelector("#content"),t=document.createElement("div");t.classList.add("page-content");const n=document.createElement("form");n.classList.add("contact-form");const c=document.createElement("input");c.type="text",c.placeholder="Enter heading",n.appendChild(c);const d=document.createElement("input");d.type="text",d.placeholder="Enter address",n.appendChild(d);const o=document.createElement("input");o.type="text",o.placeholder="Enter phone number",n.appendChild(o);const a=document.createElement("input");a.type="submit",a.value="Submit",n.appendChild(a),t.appendChild(n),e.appendChild(t)})()}))})(),e()})();
+(() => {
+    "use strict";
+
+    // Function to load the Home Page
+    const loadHome = () => {
+        const content = document.querySelector("#content");
+        const page = document.createElement("div");
+        page.classList.add("page-content");
+
+        const img = document.createElement("img");
+        img.src = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/52/e7/28/tocha-at-banyan-tree.jpg?w=600&h=-1&s=1";
+        img.height = "300";
+        page.appendChild(img);
+
+        const title = document.createElement("h1");
+        title.textContent = "Welcome to our restaurant!";
+        page.appendChild(title);
+
+        const desc = document.createElement("p");
+        desc.textContent = "We serve the best food in town!";
+        page.appendChild(desc);
+
+        content.appendChild(page);
+    };
+
+    // Function to remove existing page content
+    const clearContent = () => {
+        const content = document.querySelector("#content");
+        const page = document.querySelector(".page-content");
+        if (page) content.removeChild(page);
+    };
+
+    // Add event listeners for the top navigation buttons
+    document.addEventListener("DOMContentLoaded", () => {
+        const homeBtn = document.querySelector("nav button:nth-child(1)");
+        const menuBtn = document.querySelector("nav button:nth-child(2)");
+        const contactBtn = document.querySelector("nav button:nth-child(3)");
+
+        homeBtn.addEventListener("click", () => {
+            clearContent();
+            loadHome();
+        });
+
+        menuBtn.addEventListener("click", () => {
+            clearContent();
+            const content = document.querySelector("#content");
+            const page = document.createElement("div");
+            page.classList.add("page-content");
+
+            const title = document.createElement("h1");
+            title.textContent = "Our Menu";
+
+            const list = document.createElement("ul");
+            const item1 = document.createElement("li");
+            item1.textContent = "Pasta - $20";
+            const item2 = document.createElement("li");
+            item2.textContent = "Pizza - $15";
+            const item3 = document.createElement("li");
+            item3.textContent = "Fries - $5";
+
+            list.appendChild(item1);
+            list.appendChild(item2);
+            list.appendChild(item3);
+            page.appendChild(title);
+            page.appendChild(list);
+            content.appendChild(page);
+        });
+
+        contactBtn.addEventListener("click", () => {
+            clearContent();
+            const content = document.querySelector("#content");
+            const page = document.createElement("div");
+            page.classList.add("page-content");
+
+            const form = document.createElement("form");
+            form.classList.add("contact-form");
+
+            const input1 = document.createElement("input");
+            input1.type = "text";
+            input1.placeholder = "Enter heading";
+            form.appendChild(input1);
+
+            const input2 = document.createElement("input");
+            input2.type = "text";
+            input2.placeholder = "Enter address";
+            form.appendChild(input2);
+
+            const input3 = document.createElement("input");
+            input3.type = "text";
+            input3.placeholder = "Enter phone number";
+            form.appendChild(input3);
+
+            const submitBtn = document.createElement("input");
+            submitBtn.type = "submit";
+            submitBtn.value = "Submit";
+            form.appendChild(submitBtn);
+
+            page.appendChild(form);
+            content.appendChild(page);
+        });
+
+        // Load Home Page by default
+        loadHome();
+    });
+})();
